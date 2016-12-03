@@ -7,7 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var db = mongoose.connection;
 
-var configDB = require('/Users/Tim/Desktop/Hackathonf16/hackathonf16/config/database.js').url;
+var configDB = require('./config/database.js').url;
 console.log("here CONFIGDB: " + configDB);
 var db = mongoose.connection;
 mongoose.createConnection(configDB);

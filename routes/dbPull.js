@@ -1,5 +1,5 @@
 var express = require('express');
-var configDB = require('/Users/Tim/Desktop/Hackathonf16/hackathonf16/config/database.js').url;
+var configDB = require('../config/database.js').url;
 console.log("CONFIGDB: " + configDB);
 var router = express.Router();
 var mongoose = require('mongoose');

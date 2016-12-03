@@ -5,13 +5,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var db = mongoose.connection;
 
 var configDB = require('./config/database.js').url;
 var db = mongoose.connection;
 mongoose.createConnection(configDB);
 
-var index = require('./routes/index');
+var index = require('./routes/index.js');
 var userGet = require('./routes/userGet.js');
 var getUserTransactions = require('./routes/getUserTransactions.js');
 
@@ -52,5 +51,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 app.listen(80);
 module.exports = app;

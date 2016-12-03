@@ -8,12 +8,11 @@ var bodyParser = require('body-parser');
 var db = mongoose.connection;
 
 var configDB = require('./config/database.js').url;
-console.log("here CONFIGDB: " + configDB);
 var db = mongoose.connection;
 mongoose.createConnection(configDB);
 
 var index = require('./routes/index');
-var dbPull = require('./routes/dbPull.js');
+var userGet = require('./routes/userGet.js');
 var getUserTransactions = require('./routes/getUserTransactions.js');
 
 var app = express();
@@ -34,7 +33,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/getUserTransactions', getUserTransactions);
-app.use('/dbPull', dbPull);
+app.use('/userGet', userGet);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
